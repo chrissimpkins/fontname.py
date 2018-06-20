@@ -45,9 +45,7 @@ def main(argv):
     # iterate through all paths provided on command line and rename to `font_name` defined by user
     for font_path in font_path_list:
         # test for existence of font file on requested file path
-        if file_exists(font_path):
-            pass  # do nothing, it is there
-        else:
+        if not file_exists(font_path):
             sys.stderr.write("[fontname.py] ERROR: the path '" + font_path +"' does not appear to be a valid file path." + os.linesep)
             sys.exit(1)
 
