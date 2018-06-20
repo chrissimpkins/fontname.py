@@ -65,11 +65,16 @@ def main(argv):
             sys.stderr.write("Unable to complete execution of the script.")
             sys.exit(1)
         else:
-            nospaces_font_name = font_name.replace(" ", "")   # used for the Postscript name in the name table (no spaces allowed)
+            # used for the Postscript name in the name table (no spaces allowed)
+            postscript_font_name = font_name.replace(" ", "")
+            # font family name
+            nameID1_string = font_name
+            # full font name
+            nameID4_string = font_name + " " + variant
+            # Postscript name
+            # - no spaces allowed in family name or the PostScript suffix. should be dash delimited
+            nameID6_string = postscript_font_name + "-" + variant.replace(" ", "")
 
-            nameID1_string = font_name                            # font family name
-            nameID4_string = font_name + " " + variant            # full font name
-            nameID6_string = nospaces_font_name + "-" + variant   # Postscript name (no spaces allowed, dash delimited)
 
             # modify the opentype table data in memory with updated values
             for record in namerecord_list:
