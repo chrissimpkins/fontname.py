@@ -21,7 +21,9 @@ The script usage is as follows:
 $ python fontname.py [NEW FONT FAMILY NAME] [FONT PATH 1] <FONT PATH ...>
 ```
 
-It updates the OpenType name tables nameID 1, 4, and 6 with appropriately formatted font names using the font variant already defined in the font file and the new font family name defined by the user as the first command line argument.  You can include any number of subsequent font file paths on the command line.  The variant type will be detected in the OpenType tables of the font(s) on the filepaths that are passed as arguments on the command line and will be used to create new name strings in the OpenType tables.
+This script updates the OpenType name table records nameID 1, 4, and 6 with appropriately formatted font names using the font variant already defined in the font file and the new font family name defined by the user as the first command line argument.  You can include any number of subsequent font file paths on the command line.  The variant type will be detected in the OpenType tables of the font(s) on the filepaths that are passed as arguments on the command line and will be used to create new name strings in the OpenType tables.
+
+**Note**: this re-writes the name tables in the fonts passed as arguments on the command line (i.e. writes files in place) so make copies first if you intend to maintain the fonts with the former naming for any reason (though you can simply re-write with the previous name if you forget...).
 
 ### Examples
 
@@ -47,4 +49,4 @@ $ python fontname.py "DejaVu Sans Mono DEV" DejaVuSansMono-Bold.ttf
 
 These should all be detected as "different" fonts so that you can install them side-by-side with the pre-modified versions.
 
-**Note**: this re-writes the name tables in the fonts passed as arguments on the command line so make copies first if you intend to maintain the fonts with the former naming scheme.
+
