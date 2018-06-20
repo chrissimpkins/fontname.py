@@ -25,6 +25,7 @@ import os
 from fontTools import ttLib
 from fontTools.misc.py23 import tounicode, unicode
 
+
 def main(argv):
     # command argument tests
     print(" ")
@@ -46,7 +47,7 @@ def main(argv):
     for font_path in font_path_list:
         # test for existence of font file on requested file path
         if not file_exists(font_path):
-            sys.stderr.write("[fontname.py] ERROR: the path '" + font_path +"' does not appear to be a valid file path." + os.linesep)
+            sys.stderr.write("[fontname.py] ERROR: the path '" + font_path + "' does not appear to be a valid file path." + os.linesep)
             sys.exit(1)
 
         tt = ttLib.TTFont(font_path)
@@ -75,7 +76,6 @@ def main(argv):
             # - no spaces allowed in family name or the PostScript suffix. should be dash delimited
             nameID6_string = postscript_font_name + "-" + variant.replace(" ", "")
 
-
             # modify the opentype table data in memory with updated values
             for record in namerecord_list:
                 if record.nameID == 1:
@@ -95,7 +95,6 @@ def main(argv):
             sys.exit(1)
 
 
-
 # Utilities
 
 def file_exists(filepath):
@@ -104,6 +103,7 @@ def file_exists(filepath):
         return True
     else:
         return False
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
