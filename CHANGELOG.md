@@ -1,5 +1,10 @@
 ## Changelog
 
+### v0.3.0
+
+- bugfix: corrected PostScript nameID6 record suffix write. Previously spaces were not removed from this string value and they should be removed.
+- minor update to control flow statement to make it more concise
+- source code formatting improvements
 
 ### v0.2.0
 
