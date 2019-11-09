@@ -79,11 +79,13 @@ def main(argv):
             postscript_font_name = font_name.replace(" ", "")
             # font family name
             nameID1_string = font_name
+            nameID16_string = font_name
             # full font name
-            nameID4_string = font_name + " " + style
+            nameID4_string = f"{font_name} {style}"
             # Postscript name
             # - no spaces allowed in family name or the PostScript suffix. should be dash delimited
-            nameID6_string = postscript_font_name + "-" + style.replace(" ", "")
+            nameID6_string = f"{postscript_font_name}-{style.replace(' ', '')}"
+            # nameID6_string = postscript_font_name + "-" + style.replace(" ", "")
 
             # modify the opentype table data in memory with updated values
             for record in namerecord_list:
@@ -93,6 +95,8 @@ def main(argv):
                     record.string = nameID4_string
                 elif record.nameID == 6:
                     record.string = nameID6_string
+                elif record.nameID == 16:
+                    record.string = nameID16_string
 
         # write changes to the font file
         try:
@@ -100,7 +104,7 @@ def main(argv):
             print(f"[OK] Updated '{font_path}' with the name '{nameID4_string}'")
         except Exception as e:
             sys.stderr.write(
-                f"[fontname.py] ERROR: unable to write new name to OpenType tables for '{font_path}'. {os.linesep}"
+                f"[fontname.py] ERROR: unable to write new name to OpenType name table for '{font_path}'. {os.linesep}"
             )
             sys.stderr.write(f"{e}{os.linesep}")
             sys.exit(1)
