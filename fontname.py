@@ -14,7 +14,7 @@
 #   python3 fontname.py [FONT FAMILY NAME] [FONT PATH 1] <FONT PATH ...>
 #
 # Notes:
-#   Use quotes around font family name arguments that included spaces
+#   Use quotes around font family name arguments that include spaces
 # ===========================================================================
 
 import sys
