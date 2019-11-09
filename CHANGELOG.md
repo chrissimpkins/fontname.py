@@ -1,8 +1,15 @@
 ## Changelog
 
+### v1.0.0
+
+- refactor fontname.py script to support Python 3.6+ interpreter only
+- drop support for all versions of the Python 2 interpreter
+- black source formatting
+- add support for [name table record ID 16](https://docs.microsoft.com/en-us/typography/opentype/spec/name) edits
+
 ### v0.3.0
 
-- bugfix: corrected PostScript nameID6 record suffix write. Previously spaces were not removed from this string value and they should be removed.
+- bugfix: corrected PostScript name table record ID 6 suffix write. Previously spaces were not removed from this string value and they should be removed.
 - minor update to control flow statement to make it more concise
 - source code formatting improvements
 
