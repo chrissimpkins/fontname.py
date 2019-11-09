@@ -27,15 +27,21 @@ def main(argv):
     # command argument tests
     print(" ")
     if len(argv) < 2:
-        sys.stderr.write(f"[fontname.py] ERROR: you did not include enough arguments to the script.{os.linesep}")
-        sys.stderr.write(f"Usage: python3 fontname.py [FONT FAMILY NAME] [FONT PATH 1] <FONT PATH ...>{os.linesep}")
+        sys.stderr.write(
+            f"[fontname.py] ERROR: you did not include enough arguments to the script.{os.linesep}"
+        )
+        sys.stderr.write(
+            f"Usage: python3 fontname.py [FONT FAMILY NAME] [FONT PATH 1] <FONT PATH ...>{os.linesep}"
+        )
         sys.exit(1)
 
     # begin parsing command line arguments
     try:
         font_name = str(argv[0])  # the first argument is the new typeface name
     except Exception as e:
-        sys.stderr.write(f"[fontname.py] ERROR: Unable to convert argument to string. {e}{os.linesep}")
+        sys.stderr.write(
+            f"[fontname.py] ERROR: Unable to convert argument to string. {e}{os.linesep}"
+        )
         sys.exit(1)
 
     # all remaining arguments on command line are file paths to fonts
@@ -45,7 +51,9 @@ def main(argv):
     for font_path in font_path_list:
         # test for existence of font file on requested file path
         if not file_exists(font_path):
-            sys.stderr.write(f"[fontname.py] ERROR: the path '{font_path}' does not appear to be a valid file path.{os.linesep}")
+            sys.stderr.write(
+                f"[fontname.py] ERROR: the path '{font_path}' does not appear to be a valid file path.{os.linesep}"
+            )
             sys.exit(1)
 
         tt = ttLib.TTFont(font_path)
@@ -61,7 +69,9 @@ def main(argv):
 
         # test that a style name was found in the OpenType tables of the font
         if len(style) == 0:
-            sys.stderr.write(f"[fontname.py] Unable to detect the font style from the OpenType name table in '{font_path}'. {os.linesep}")
+            sys.stderr.write(
+                f"[fontname.py] Unable to detect the font style from the OpenType name table in '{font_path}'. {os.linesep}"
+            )
             sys.stderr.write("Unable to complete execution of the script.")
             sys.exit(1)
         else:
@@ -89,7 +99,9 @@ def main(argv):
             tt.save(font_path)
             print(f"[OK] Updated '{font_path}' with the name '{nameID4_string}'")
         except Exception as e:
-            sys.stderr.write(f"[fontname.py] ERROR: unable to write new name to OpenType tables for '{font_path}'. {os.linesep}")
+            sys.stderr.write(
+                f"[fontname.py] ERROR: unable to write new name to OpenType tables for '{font_path}'. {os.linesep}"
+            )
             sys.stderr.write(f"{e}{os.linesep}")
             sys.exit(1)
 
