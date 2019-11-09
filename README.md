@@ -49,4 +49,6 @@ $ python3 fontname.py "DejaVu Sans Mono DEV" DejaVuSansMono-Bold.ttf
 
 These should all be detected as "different" fonts so that you can install them side-by-side with the pre-modified versions.
 
+## License
 
+[MIT License](LICENSE)
