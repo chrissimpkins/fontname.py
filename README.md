@@ -21,7 +21,7 @@ The script usage is as follows:
 $ python3 fontname.py [NEW FONT FAMILY NAME] [FONT PATH 1] <FONT PATH ...>
 ```
 
-This script updates the OpenType name table records nameID 1, 4, 6, and 16 with appropriately formatted font names using the font style definition in the font and the new font family name defined by the user as the first command line argument.  You can include any number of subsequent font paths on the command line.  The style will be detected in the OpenType tables of the fonts filepath arguments and will be used to create new name strings in the OpenType tables.
+This script updates the OpenType name table records nameID 1, 4, 6, and 16 with appropriately formatted font names using the font style definition in the font and the new font family name defined by the user as the first command line argument.  The CFF fontName, familyName, and fullName fields are edited in CFF fonts (*.otf).  You can include any number of subsequent font paths on the command line.  The style will be detected in the OpenType tables of the fonts filepath arguments and will be used to create new name strings in the OpenType tables.
 
 **Note**: this re-writes the name tables in the fonts passed as arguments on the command line (i.e. writes files in place) so make copies first if you intend to maintain the fonts with the former naming for any reason (though you can simply re-write with the previous name if you forget...).
 
