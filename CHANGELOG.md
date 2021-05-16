@@ -1,5 +1,10 @@
 ## Changelog
 
+### v2.0.0
+
+- add CFF table edit writes in CFF (*.otf) fonts: updates fontName, fullName, and familyName CFF fields
+- import order formatting with isort
+
 ### v1.0.0
 
 - refactor fontname.py script to support Python 3.6+ interpreter only
