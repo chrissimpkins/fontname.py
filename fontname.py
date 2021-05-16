@@ -17,8 +17,8 @@
 #   Use quotes around font family name arguments that include spaces
 # ===========================================================================
 
-import sys
 import os
+import sys
 
 from fontTools import ttLib
 
