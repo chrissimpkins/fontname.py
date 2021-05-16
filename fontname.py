@@ -98,6 +98,18 @@ def main(argv):
                 elif record.nameID == 16:
                     record.string = nameID16_string
 
+            # CFF table naming for CFF fonts (only)
+            if "CFF " in tt:
+                try:
+                    cff = tt["CFF "]
+                    cff.cff[0].FamilyName = nameID1_string
+                    cff.cff[0].FullName = nameID4_string
+                    cff.cff.fontNames = [nameID6_string]
+                except Exception as e:
+                    sys.stderr.write(
+                        f"[fontname.py] ERROR: unable to write new names to CFF table: {e}"
+                    )
+
         # write changes to the font file
         try:
             tt.save(font_path)
